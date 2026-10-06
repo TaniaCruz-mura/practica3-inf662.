@@ -1,18 +1,18 @@
-### 2. `app2_cinebutaca/README.md`
+### 3. `app3_habitodiario/README.md`
 
 ```markdown
-# App 2: CineButaca - Reserva de Asientos con Selector
+# App 3: Hábito Diario - Seguimiento de Hábitos con MultiProvider
 
-Aplicación interactiva para la reserva de asientos de cine, enfocada en la optimización de reconstrucciones del árbol de widgets mediante el uso de `Selector`. Desarrollada para la Práctica N.º 3 de INF 662.
+Aplicación de seguimiento y control de hábitos diarios que demuestra la coordinación de múltiples estados independientes mediante `MultiProvider`. Desarrollada para la Práctica N.º 3 de INF 662.
 
 ## 🚀 Características
-- **Matriz de asientos:** Muestra una sala de cine (6x8) utilizando `GridView.builder` y un `enum EstadoAsiento` (libre, seleccionado, ocupado).
-- **Optimización con Selector:** Cada asiento está envuelto en un `Selector<SalaModel, EstadoAsiento>` para reconstruir únicamente la celda cuyo estado cambia al interactuar.
-- **Límite y validaciones:** Valida un límite máximo de 6 asientos por reserva. Si el usuario intenta superar el máximo, se despliega un `SnackBar` informativo.
-- **Barra inferior eficiente:** Utiliza `Selector` con el parámetro `child` para reutilizar widgets estáticos y calcular el total a pagar en tiempo real.
-- **Pantalla de confirmación:** Muestra el resumen de la compra. Al confirmar, los asientos pasan a estado ocupado y la selección se limpia automáticamente.
+- **Gestión con MultiProvider:** Coordina de forma independiente `HabitosModel` (lista de hábitos y porcentaje) y `PreferenciasModel` (datos del usuario, modo de tema y meta diaria).
+- **Tema global dinámico:** La propiedad `themeMode` de `MaterialApp` es controlada reactivamente por `PreferenciasModel` desde cualquier pantalla sin reiniciar la app.
+- **Formulario validado:** Formulario para agregar hábitos (`Form` + `TextFormField` + `DropdownButtonFormField`) que asegura que el nombre no esté vacío y exige la selección de categoría.
+- **Pantalla principal:** Muestra un saludo personalizado, lista interactiva de hábitos con `CheckboxListTile`, barra de progreso del día y un aviso especial al alcanzar la meta diaria.
+- **Ajustes en tiempo real:** Modificación de nombre, conmutador de modo claro/oscuro y actualización de meta diaria reflejados al instante en toda la interfaz.
 
-## 🛠️ Tecnologías y Paquetes
+## 🛠️️ Tecnologías y Paquetes
 - **Flutter** (Canal estable)
 - **Dart 3**
 - **provider: ^6.x**
